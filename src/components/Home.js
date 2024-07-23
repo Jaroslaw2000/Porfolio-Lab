@@ -7,6 +7,7 @@ import icon3 from '../assets/Icon3.png';
 import icon4 from '../assets/Icon4.png';
 import people from '../assets/People.png';
 import WhoesHelp from "./WhoesHelp";
+import Contact from "./Contact";
 
 const Home = () => {
     return (
@@ -110,6 +111,7 @@ const Home = () => {
                 </div>
             </section>
             <WhoesHelp/>
+            <Contact/>
         </div>
     );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-import decoration from '../assets/Decoration.png'
+import decoration from '../assets/Decoration.png';
 
 const contentData = {
     fundacjom: {
@@ -15,6 +14,26 @@ const contentData = {
                 title: 'Fundacja "Dla dzieci"',
                 mission: 'Pomoc dzieciom z ubogich rodzin.',
                 needs: 'ubrania, meble, zabawki'
+            },
+            {
+                title: 'Fundacja "Bez domu"',
+                mission: 'Pomoc dla osób nie posiadających miejsca zamieszkania.',
+                needs: 'ubrania, jedzenie, ciepłe koce'
+            },
+            {
+                title: 'Fundacja "Bez domu"',
+                mission: 'Pomoc dla osób nie posiadających miejsca zamieszkania.',
+                needs: 'ubrania, jedzenie, ciepłe koce'
+            },
+            {
+                title: 'Fundacja "Bez domu"',
+                mission: 'Pomoc dla osób nie posiadających miejsca zamieszkania.',
+                needs: 'ubrania, jedzenie, ciepłe koce'
+            },
+            {
+                title: 'Fundacja "Bez domu"',
+                mission: 'Pomoc dla osób nie posiadających miejsca zamieszkania.',
+                needs: 'ubrania, jedzenie, ciepłe koce'
             },
             {
                 title: 'Fundacja "Bez domu"',
@@ -40,6 +59,21 @@ const contentData = {
                 title: 'Organizacja “Lorem Ipsum 3”',
                 mission: 'Scelerisque in dictum non consectetur a erat nam.',
                 needs: 'Mi, quis, hendrerit, dolor'
+            },
+            {
+                title: 'Organizacja “Lorem Ipsum 3”',
+                mission: 'Scelerisque in dictum non consectetur a erat nam.',
+                needs: 'Mi, quis, hendrerit, dolor'
+            },
+            {
+                title: 'Organizacja “Lorem Ipsum 3”',
+                mission: 'Scelerisque in dictum non consectetur a erat nam.',
+                needs: 'Mi, quis, hendrerit, dolor'
+            },
+            {
+                title: 'Organizacja “Lorem Ipsum 3”',
+                mission: 'Scelerisque in dictum non consectetur a erat nam.',
+                needs: 'Mi, quis, hendrerit, dolor'
             }
         ]
     },
@@ -60,23 +94,66 @@ const contentData = {
                 title: 'Zbiórka “Lorem Ipsum 3”',
                 mission: 'Scelerisque in dictum non consectetur a erat nam.',
                 needs: 'Mi, quis, hendrerit, dolor'
+            },
+            {
+                title: 'Zbiórka “Lorem Ipsum 3”',
+                mission: 'Scelerisque in dictum non consectetur a erat nam.',
+                needs: 'Mi, quis, hendrerit, dolor'
+            },
+            {
+                title: 'Zbiórka “Lorem Ipsum 3”',
+                mission: 'Scelerisque in dictum non consectetur a erat nam.',
+                needs: 'Mi, quis, hendrerit, dolor'
+            },
+            {
+                title: 'Zbiórka “Lorem Ipsum 3”',
+                mission: 'Scelerisque in dictum non consectetur a erat nam.',
+                needs: 'Mi, quis, hendrerit, dolor'
             }
         ]
     }
 };
 
-const Content = ({ category }) => {
+const Content = ({ category, currentPage, itemsPerPage }) => {
     const { description, entries } = contentData[category];
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const currentEntries = entries.slice(startIndex, startIndex + itemsPerPage);
 
     return (
         <div className="content">
-            <p>{description}</p>
-            {entries.map((entry, index) => (
+            <p className="description">{description}</p>
+            {currentEntries.map((entry, index) => (
                 <div key={index} className="entry">
-                    <h2>{entry.title}</h2>
-                    <p>Cel i misja: {entry.mission}</p>
-                    <p>Potrzeby: {entry.needs}</p>
+                    <div className="main-description">
+                        <h2>{entry.title}</h2>
+                        <p>Cel i misja: {entry.mission}</p>
+                        <div className="description-need">
+                            <p>Potrzeby: {entry.needs}</p>
+                        </div>
+                    </div>
                 </div>
+            ))}
+        </div>
+    );
+};
+
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+    }
+
+    return (
+        <div className="pagination">
+            {pages.map(page => (
+                <button
+                    key={page}
+                    onClick={() => onPageChange(page)}
+                    className={page === currentPage ? 'active' : ''}
+                >
+                    {page}
+                </button>
             ))}
         </div>
     );
@@ -94,16 +171,23 @@ const Navbar = ({ setCategory }) => {
 
 const WhoesHelp = () => {
     const [category, setCategory] = useState('fundacjom');
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3;
+    const totalPages = Math.ceil(contentData[category].entries.length / itemsPerPage);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
     return (
         <div className="container">
             <h1>Komu pomagamy?</h1>
-            <img src={decoration} alt="decoration"/>
+            <img src={decoration} alt="decoration" />
             <Navbar setCategory={setCategory} />
-            <Content category={category} />
+            <Content category={category} currentPage={currentPage} itemsPerPage={itemsPerPage} />
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         </div>
     );
 };
 
 export default WhoesHelp;
-
