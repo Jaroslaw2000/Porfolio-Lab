@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import decoration from '../assets/Decoration.png';
+
+
+
 
 const contentData = {
     fundacjom: {
@@ -179,8 +182,12 @@ const WhoesHelp = () => {
         setCurrentPage(page);
     };
 
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [category]);
+
     return (
-        <div className="container">
+        <div className="container" id="organizations">
             <h1>Komu pomagamy?</h1>
             <img src={decoration} alt="decoration" />
             <Navbar setCategory={setCategory} />

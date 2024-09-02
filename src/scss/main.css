@@ -58,6 +58,7 @@ body {
   background-color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
 .auth-button:hover {
@@ -419,12 +420,14 @@ body {
 }
 
 .footer {
+  width: 50%;
+  left: 50%;
   display: flex;
   position: relative;
   top: 500px;
-  left: -300px;
   justify-content: space-between;
   font-size: 15px;
+  flex: 1;
 }
 
 .footer-copyright {
@@ -433,8 +436,113 @@ body {
   align-items: center;
 }
 
+.footer-copyright p {
+  position: relative;
+  left: -500px;
+}
+
 .footer-icons {
-  left: 0;
+  display: flex;
+}
+
+.auth-button-contact {
+  position: relative;
+  display: grid;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  left: 350px;
+}
+
+.error {
+  display: flex;
+  font-size: 15px;
+  color: red;
+  align-items: center;
+  justify-content: center;
+}
+
+.Login {
+  display: block;
+  text-align: center;
+}
+
+.Login-tittle {
+  display: inline-grid;
+  margin: 5px;
+  line-height: 50px;
+  font-size: 35px;
+}
+
+.Login-container {
+  margin-top: 50px;
+  height: 280px;
+  background-color: #F0F1F1;
+  margin-right: 550px;
+  margin-left: 550px;
+  padding: 50px;
+  line-height: 45px;
+  text-align: left;
+}
+
+.Login-container-input {
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  width: 100%;
+  font-size: 20px;
+}
+
+.Login-footer {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.Register {
+  display: block;
+  text-align: center;
+}
+
+.Register-tittle {
+  display: inline-grid;
+  margin: 5px;
+  line-height: 50px;
+  font-size: 35px;
+}
+
+.Register-container {
+  margin-top: 50px;
+  height: 380px;
+  background-color: #F0F1F1;
+  margin-right: 550px;
+  margin-left: 550px;
+  padding: 50px;
+  line-height: 45px;
+  text-align: left;
+}
+
+.Register-container-input {
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  width: 100%;
+  font-size: 20px;
+}
+
+.Register-footer {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */

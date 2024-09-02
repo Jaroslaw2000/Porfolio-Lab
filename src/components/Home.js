@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-scroll'
 import decoration from '../assets/Decoration.png';
 import homeHeroImage from '../assets/Home-Hero-Image.jpg';
 import icon1 from '../assets/Icon1.png';
@@ -8,26 +9,13 @@ import icon4 from '../assets/Icon4.png';
 import people from '../assets/People.png';
 import WhoesHelp from "./WhoesHelp";
 import Contact from "./Contact";
+import Header from "./Header";
 
 const Home = () => {
     return (
         <div>
-            <header className="header">
-                <nav className="nav">
-                    <div className="auth-buttons">
-                        <button className="auth-button">Zaloguj</button>
-                        <button className="auth-button">Załóż konto</button>
-                    </div>
-                    <ul className="nav-list">
-                        <li className="nav-item"><a href="#">Start</a></li>
-                        <li className="nav-item"><a href="#">O co chodzi?</a></li>
-                        <li className="nav-item"><a href="#">O nas</a></li>
-                        <li className="nav-item"><a href="#">Fundacja i organizacje</a></li>
-                        <li className="nav-item"><a href="#">Kontakt</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <main className="main-content">
+            <Header/>
+            <main className="main-content" id="home">
                 <div className="main-image">
                     <img src={homeHeroImage} alt="Box with items"/>
                 </div>
@@ -41,7 +29,7 @@ const Home = () => {
                     </div>
                 </div>
             </main>
-            <section className="column-section">
+            <section className="column-section" id="about">
                 <div className="column-tabela">
                     <ul className="column-ul">
                         <li className="column-li">
@@ -62,7 +50,7 @@ const Home = () => {
                     </ul>
                 </div>
             </section>
-            <section className="column-section-2">
+            <section className="column-section-2" id="about-us">
                 <div className="title">
                     <h1>Wystarczą 4 proste kroki</h1>
                     <img src={decoration} alt="Decoration"/>

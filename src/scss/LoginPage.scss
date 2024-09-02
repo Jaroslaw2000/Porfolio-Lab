@@ -1,0 +1,37 @@
+.Login{
+  display: block;
+  text-align: center;
+}
+.Login-tittle{
+  display: inline-grid;
+  margin: 5px;
+  line-height: 50px;
+  font-size: 35px;
+}
+
+.Login-container{
+  margin-top: 50px;
+  height:280px;
+  background-color: #F0F1F1;
+  margin-right: 550px;
+  margin-left: 550px;
+  padding: 50px;
+  line-height: 45px;
+  text-align: left;
+}
+.Login-container-input{
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  width: 100%;
+  font-size: 20px;
+}
+
+.Login-footer {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 30px;
+}
